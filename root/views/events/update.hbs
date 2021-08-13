@@ -1,0 +1,30 @@
+<div class="container py-5 w-50">
+    <form method="POST" action="/events/update-confirm">
+        <input name="initiatorId" value="{{user._id}}" hidden>
+        <input name="eventId" value="{{event._id}}" hidden>
+
+        <div class="row g-2 mb-3">
+            <div class="col-md">
+                <div class="form-floating">
+                    <input value="{{event.date}}" name="date" type="datetime-local" class="form-control" id="date"
+                        placeholder="Date">
+                    <label for="date">Date</label>
+                </div>
+
+            </div>
+            <div class="col-md">
+                <div class="form-floating">
+                    <input value="{{event.sport}}" name="sport" type="text" class="form-control" id="sport"
+                        placeholder="Sport">
+                    <label for="sport">Sport</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-floating mb-3">
+            <input value="{{event.location}}" name="location" type="text" class="form-control" id="location"
+                placeholder="Location" required>
+            <label for="location">Location</label>
+        </div>
+        <button type="submit" class="btn btn-outline-dark my-3">Submit</button>
+    </form>
+</div>

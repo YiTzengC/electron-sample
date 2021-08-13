@@ -1,0 +1,35 @@
+<div class="row account-view m-0">
+    {{> sidebar}}
+    <div class="d-flex flex-column account-content text-white py-4 px-5 bg-light ">
+        <div class="w-75 mx-auto">
+            <h2 class="h2-color px-3 py-3 rounded shadow-sm">My Account</h2>
+            <div class="card mb-1 w-100 text-dark mt-4 shadow">
+                <button class="btn btn-outline-secondary w-25 ms-auto me-3 mt-2" id="update-btn">Update Image</button>
+                <div class="row g-0 p-5">
+                    <div class="col-md-6 text-center">
+                        <img src="images/{{user.image}}" class="rounded-circle align-middle"
+                            style="height: 200px; width:200px; object-fit:cover;" id="profile-img">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Name: {{user.name}}</li>
+                                <li class="list-group-item">Email: {{user.username}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form method="POST" enctype="multipart/form-data" hidden class="text-end mt-3">
+                <div class="input-group mb-3" hidden>
+                    {{!-- <label class="input-group-text" for="inputGroupFile01">Upload</label> --}}
+                    <input name="upload" type="file" class="form-control" id="inputGroupFile01">
+                </div>
+                <button class="btn btn-success shadow" type="submit">Save</button>
+                <button class="btn btn-danger shadow" id="cancel-btn" type="button">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="javascripts/sidebar.js"></script>
+<script src="javascripts/upload.js"></script>

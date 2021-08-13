@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+<div class="px-2 h-100 d-flex flex-column w-50 mx-auto">
+    <div class="d-flex">
+        <div class="col-2 mt-5 mb-3">
+            <select class="form-select" aria-label="Default select example" id="search-tag">
+                <option value="Sport" selected>Sport</option>
+                <option value="Initiator">Initiator</option>
+                <option value="Location">Location</option>
+            </select>
+        </div>
+        <div class="col-6 mt-5 mb-3">
+            <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search"
+                id="search">
+        </div>
+
+        <div class="col-4 mt-5 mb-3 text-end">
+            <a href="/events/add" class="btn btn-outline-success w-50 text-center"><i
+                    class="bi bi-plus-lg me-2 align-bottom"></i>New Event</a>
+        </div>
+    </div>
+    {{#each events}}
+    <div class="card py-3 shadow position-relative mb-3" id="event-card">
+        <span class="text-left card-date-float">
+            <small class="text-muted">
+                Date: {{this.date}}
+            </small>
+        </span>
+        <div class="card-body">
+            <div class="row px-3">
+                <div class="col-2 align-items-center d-flex p-0">
+                    <img src="images/{{this.initiatorId.image}}" class="rounded-circle mx-auto"
+                        style="width:5rem; height:5rem; object-fit:cover">
+                </div>
+                <div class="col d-flex flex-column position-relative">
+                    {{#if ../user}}
+                    {{#if isInitEuqual2User}}
+                    <form method="POST" action="/events/delete" class="position-absolute top-0 end-0">
+                        <input name="eventId" value="{{this._id}}" hidden>
+                        <button type="submit" class="btn btn-danger"
+                            onclick="return confirm('Are you sure you want to delete this event?')">delete</button>
+                    </form>
+                    {{else}}
+                    {{#if this.isRegistered}}
+                    <form method="POST" action="/events/withdraw" class="position-absolute top-0 end-0">
+                        <input name="eventId" value="{{this._id}}" hidden>
+                        <input name="userId" value="{{../user._id}}" hidden>
+                        <button type="submit" class="btn btn-secondary"
+                            onclick="return confirm('Are you sure you want to withdraw from this event?')">Withdraw</button>
+                    </form>
+                    {{else}}
+                    <form method="POST" action="/events/register" class="position-absolute top-0 end-0">
+                        <input name="eventId" value="{{this._id}}" hidden>
+                        <input name="userId" value="{{../user._id}}" hidden>
+                        <button type="submit" class="btn btn-secondary"
+                            onclick="return confirm('Are you sure you want to join this event?')">Join</button>
+                    </form>
+                    {{/if}}
+                    {{/if}}
+                    {{/if}}
+                    <span>Initiator: {{this.initiatorId.name}}</span>
+                    <span class="text-left">Sport: {{this.sport}}</span>
+                    <span class="text-left">Participants: {{this.participants}}</span>
+                    <span class="text-left">Location: {{this.location}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+<script src="javascripts/search.js"></script>

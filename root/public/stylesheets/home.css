@@ -1,0 +1,38 @@
+#home-intro {
+    background: url('../images/home-intro.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    box-shadow:inset 0 0 0 2000px rgba(59, 59, 59, 0.425);
+}
+
+#home-intro > div:first-child {
+    width: 45%;
+    height: 100%;
+    padding: 15rem 3rem;
+    background: #3c6e71cc;
+}
+
+#home-intro > div > div:first-child {
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 1rem;
+    border: .15rem black solid;
+}
+
+#home-intro > div > div > div:first-child {
+    height: 100%;
+    padding: 3rem 2rem;
+    background-color: rgb(0, 0, 0);
+}
+
+#home-intro div a {
+    font-weight: bold;
+    width: 40%;
+    background: #449296;
+}
+
+#home-intro div a:hover {
+    background: #3c6e71;
+}

@@ -1,0 +1,24 @@
+<div class="container py-5 w-50">
+    <form method="POST">
+        <input name="initiatorId" value="{{user._id}}" hidden>
+        <div class="row g-2 mb-3">
+            <div class="col-md">
+                <div class="form-floating">
+                    <input name="date" type="datetime-local" class="form-control" id="date" placeholder="Date" required>
+                    <label for="date">Date</label>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="form-floating">
+                    <input name="sport" type="text" class="form-control" id="sport" placeholder="Sport" required>
+                    <label for="sport">Sport</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-floating">
+            <input name="location" type="text" class="form-control" id="location" placeholder="Location" required>
+            <label for="location">Location</label>
+        </div>
+        <button type="submit" class="btn btn-outline-dark my-3">Submit</button>
+    </form>
+</div>

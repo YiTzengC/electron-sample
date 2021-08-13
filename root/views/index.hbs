@@ -1,0 +1,22 @@
+<link href="stylesheets/home.css" rel="stylesheet" />
+
+<section class="align-items-center d-flex" id="home-intro">
+    <div class="text-center ms-auto">
+        <div class="text-center">
+            <div class="text-center align-items-center d-flex">
+                <div>
+                    <h1 class="fw-light text-white">SportsMeet</h1>
+                    <p class="lead text-muted">Join our community to register for a sporting event or create your own.
+                    </p>
+                    <a href="
+                    {{#if user}}
+                        /events
+                    {{else}}
+                        /sign-in
+                    {{/if}}
+                    " class="btn">Join Now!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
